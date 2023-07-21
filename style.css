@@ -1,0 +1,178 @@
+	.center {
+		width: 50%;
+		margin: auto;
+		padding: 10px;
+	}
+	
+	.left {
+		float: left;
+		width: auto;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.right {
+		float: right;
+		width: auto;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.error {
+		color: red;
+		border: 1px solid #D8D8D8;
+		text-align: center;
+	}
+	
+	.div-main-info {
+		float: left;
+		display: inline-block;
+		margin: 0px 0px 0px 10px;
+	}
+	
+	.div-main-info p{
+		font-size: 14px;
+		color: grey;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.div-info {
+		float: left;
+		display: inline-block;
+		margin: 0px 0px 0px 10px;
+	}
+	
+	.div-info p{
+		font-size: 12px;
+		color: grey;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.div-element {
+		float: left;
+		display: inline-block;
+	}
+	
+	.mc-video-style {
+		width: 168px;
+		height: 100px;
+		left: 0px;
+		top: 0px;
+	}
+			
+	.mc-main-video-style {
+		width: 960px;
+		height: 540px;
+		left: 0px;
+		top: 0px;
+	}
+	
+	.fixed-header {
+		position: fixed;
+		left: 20px;
+		right: 20px;
+		top: 10px;
+		height: 80px;
+		z-index: 1;
+		background-color: #ffffff;
+	}
+
+	.fixed {
+		position: fixed;
+		left: 20px;
+		right: 0px;
+		top: 90px;
+	}
+	
+	.files-list {
+		margin-top: 90px;
+	}
+
+	/* ---------- Scroll Styling ---------- */
+	/* width */
+	::-webkit-scrollbar {
+	  width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+	  background: #f1f1f1; 
+	}
+	 
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+	  background: #888; 
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+	  background: #555; 
+	}
+	
+	.stop-scrolling {
+	  height: 100%;
+	  overflow: hidden;
+	}
+
+	/* Loader */
+.loader {
+    width: 60px;
+    margin: 0px auto;
+}
+
+.loader-wheel {
+    animation: spin 1s infinite linear;
+    border: 2px solid #0a4595; /* rgba(30, 30, 30, 0.5); */
+    border-left: 4px solid #0a4595;
+    border-radius: 50%;
+    height: 50px;
+    margin-bottom: 10px;
+    width: 50px;
+}
+
+.loader-text {
+    color: #0a4595;
+    font-family: arial, sans-serif;
+}
+
+.loader-text:after {
+    content: 'Loading';
+    animation: load 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes load {
+    0% {
+        content: 'Loading';
+    }
+    33% {
+        content: 'Loading.';
+    }
+    67% {
+        content: 'Loading..';
+    }
+    100% {
+        content: 'Loading...';
+    }
+}
+
+.mc-modal{
+    /* background-color: #ffffff; */
+    background-color: transparent;
+}
+
+.mc-modal-content{
+    margin-top: 50%;
+    text-align: center;
+    background-color: transparent;
+}
