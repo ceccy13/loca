@@ -184,36 +184,39 @@
 			<div class="col-md-4">
 				<div class="files-list">
 					<?php
-						foreach($short_files_list as $key => $file)
+						if($short_files_list)
 						{
-							$id = trim($file);
-							$id = str_replace(DIRECTORY_SEPARATOR, '', $id);
-							$id = str_replace('.', '', $id);
-							$id = str_replace(' ', '', $id);
-							$id = preg_replace('/[^A-Za-z0-9]/', '', $id);
-							echo '
-								<div class="row">
-									<div class="col-md-12">
-										<div class="div-element">
-											<a href="" class="load_to_paly_video">
-												<video class="video-js mc-video-style" muted="muted">
-													<source src="'.$file.'" type="video/mp4" />
-												</video>
-												<input id="'.$id.'" type="hidden" value="'.$key.'"/>
-												<input name="file_name" type="hidden" value="'.$file.'"/>
-											</a>
-										</div>
-										<div class="div-info">
-											<p><b>File:</b> '.$file.'</p>
-											<p>'.$files_info[$key]['file_size'].'</p>
-											<p>'.$files_info[$key]['file_time_last_access'].'</p>
-											<p>'.$files_info[$key]['file_last_changed'].'</p>
+							foreach($short_files_list as $key => $file)
+							{
+								$id = trim($file);
+								$id = str_replace(DIRECTORY_SEPARATOR, '', $id);
+								$id = str_replace('.', '', $id);
+								$id = str_replace(' ', '', $id);
+								$id = preg_replace('/[^A-Za-z0-9]/', '', $id);
+								echo '
+									<div class="row">
+										<div class="col-md-12">
+											<div class="div-element">
+												<a href="" class="load_to_paly_video">
+													<video class="video-js mc-video-style" muted="muted">
+														<source src="'.$file.'" type="video/mp4" />
+													</video>
+													<input id="'.$id.'" type="hidden" value="'.$key.'"/>
+													<input name="file_name" type="hidden" value="'.$file.'"/>
+												</a>
+											</div>
+											<div class="div-info">
+												<p><b>File:</b> '.$file.'</p>
+												<p>'.$files_info[$key]['file_size'].'</p>
+												<p>'.$files_info[$key]['file_time_last_access'].'</p>
+												<p>'.$files_info[$key]['file_last_changed'].'</p>
+											</div>
 										</div>
 									</div>
-								</div>
-								<br>
-								<br>
-							';
+									<br>
+									<br>
+								';
+							}
 						}
 					?>
 				</div>

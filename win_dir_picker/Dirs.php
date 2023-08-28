@@ -63,6 +63,7 @@ class Dirs{
 	
 	public static function getCurrentDirectory()
 	{
+		error_log( print_r($_SESSION, true) );
 		if(isset($_SESSION['dir'][0]))
 		{
 			$dir['name'] = $_SESSION['dir'][array_key_last($_SESSION['dir'])]['name'];
@@ -120,6 +121,7 @@ class Dirs{
 	
 	public static function destroyDirs($dir_key)
 	{
+		error_log($dir_key.' dir keyyyyyyy');
 		$dirs_in_depth = self::getDirectory();
 		$dirs_in_depth = array_slice($dirs_in_depth, 0, $dir_key + 1);
 		unset($_SESSION['dir']);
@@ -144,26 +146,35 @@ class Dirs{
 			self::destroyDirs($dir);
 			$current_dir = self::getCurrentDirectory();
 			$dir = $current_dir['name'];
+			error_log('is_dir_back');
 		}
-		elseif($dir && is_numeric($dir) && $dir > 0)
+		elseif((is_numeric($dir) && $dir > 0))
 		{   // TODO
 			self::destroyDirs($dir);
 			$current_dir = self::getBreadCrumbDirectory($dir);
 			$dir = $current_dir['name'];
 			$is_dir_bread_crumb = true;
+			error_log('is_dir_bread_crumb');
 		}
-		
+
+		error_log('ddd '.$dir);
 		// TODO REFACTORING
 		if(!$dir)
 		{	// TODO
+			error_log('destroy');
 			session_destroy();
 			$_SESSION = array();
 			$dirs = self::getDrives();
+			error_log(print_r($dirs, true));
+		}
+		elseif($dir === 'dir')
+		{
+			error_log('dirdirdirdirdirdir');
 		}
 		else
 		{
 			$current_dir = self::getCurrentDirectory();
-
+error_log(print_r($current_dir, true));
 			$is_dir = $current_dir['name'] ? true : false;
 			$drive = self::getCurrentDrive() ? self::getCurrentDrive() : $dir;
 			

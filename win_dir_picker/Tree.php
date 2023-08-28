@@ -40,14 +40,14 @@ class Tree
 	public static function getDirsHtml($dir)
 	{
 		$dirs = Dirs::getSubDirs($dir);
-		$dir_currnet = Dirs::getCurrentDirectory();
+		$dir_current = Dirs::getCurrentDirectory();
 		$dirs_in_depth = Dirs::getDirectory();
-		
+
 		// return dirs and paths in html
 		$html = '';
 		if($dirs)
 		{
-			$html .= '<input type="hidden" readonly id="path" value="'.$dir_currnet['path'].'"/>';
+			$html .= '<input type="hidden" readonly id="path" value="'.$dir_current['path'].'"/>';
 			// isSubDir			
 			if(!empty($dirs_in_depth))
 			{
@@ -69,7 +69,7 @@ class Tree
 		// show list of new dirs tree in html
 		if(strpos($dir, self::$prefix_dir_back) !== false){
 			$dir_name = explode('###', $dir)[0];
-			$dir = $prefix_dir_back.$dir;
+			$dir = self::$prefix_dir_back.$dir;
 			$is_dir_back = true;
 		} else{
 			$is_dir_back = false;
